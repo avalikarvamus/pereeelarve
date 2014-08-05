@@ -4,14 +4,17 @@
 <h1>{% if title %} {{ title }} {% else %} Home budget {% endif %}</h1>
 </div>
 <div id="overview">
-        <h2>Budget list:</h2>
-        <ul>
-        {% for line in budgets %}
-	<li><a href="{{ url_for('show_budget', budget_id=line.id) }}">{{ line.name }}</a>:<span class="numb"> {{ line.profit_or_loss }}</span></li>
-	{% else %}
-	<li>No budgets!</li>
-	{% endfor %}
-        </ul>
+        <form action="" method="post" name="post">
+        Budget: {{ form.name }} <br>
+        Desc: {{ form.desc }}
+        <input class="btn btn-primary" type="submit" value="Add">
+    </form>
+</div>
+<div id="income">
+
+</div>
+<div id="spending">
+	
 </div>
 <div id="message">
 </div>

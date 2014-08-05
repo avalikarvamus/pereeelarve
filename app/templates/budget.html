@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="header">
+<h1>{% if title %} {{ title }} {% else %} Home budget {% endif %}</h1>
+</div>
+<div id="overview">
+        <h2>Budget: {% if budget.name %} {{ budget.name }}  {% else %} (without name) {% endif %}</h2>
+        <p>Added: {{ budget.time_added_to_base }}</p>
+        <p>{% if budget.desc %} {{ budget.desc }} {% endif %}</p>
+        <p>Estimate: {{ budget.profit_or_loss }}</p>
+</div>
+<div id="income">
+	<ul>
+	{% for line in budget.incomings %}
+	<li>{{ line.name }} :<span class="numb"> {{ line.estimate }}</span></li>
+	{% if loop.last %}
+		<li><b>Total: <span class="numb">{{ budget.total_income }}</span></b></li>
+	{% endif %}
+	{% else %}
+	<li>No income!</li>
+	{% endfor %}
+	</ul>
+</div>
+<div id="spending">
+	<ul>
+	{% for line in budget.spendings %}
+	<li>{{ line.name }} :<span class="numb"> {{ line.estimate }} </span></li>
+	{% if loop.last %}
+		<li><b>Total: <span class="numb"> {{ budget.total_spending }}</span></b></li>
+	{% endif %}
+	{% else %}
+	<li>No spendings!</li>
+	{% endfor %}
+	</ul>
+</div>
+<div id="message">
+</div>
+<noscript><div id="noscript">Need's JavaScript to work!</div></noscript>
+{% endblock %}

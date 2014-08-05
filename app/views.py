@@ -7,7 +7,7 @@ import  os, random, exceptions
 from flask import render_template, flash, redirect, session, url_for, request
 from app import app, db
 from models import User, Budget, BudgetLine
-#from forms import UserRegistrationForm
+from forms import AddBudgetForm
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
@@ -34,11 +34,30 @@ def register():
     #form = UserRegistrationForm()
     return render_template("register.html")
 
+@app.route('/example')
+def example():
+    budget = Budget.query.first()
+    return render_template("budget.html", title = 'Pereeelarve', budget = budget)
+
+@app.route('/eelarve/<int:budget_id>')
+def show_budget(budget_id):
+    #if 'user' in session:
+    budget = Budget.query.filter(Budget.id==budget_id).first()
+    return render_template("budget.html", title = 'Pereeelarve', budget = budget)
+    #return render_template("loginform.html", title = 'Login: Pereeelarve')
+
+@app.route('/lisa-eelarve/', methods = ['GET', 'POST'])
+def add_budget():
+    form = AddBudgetForm()
+    return render_template("add_budget.html", title = 'Lisa pereeelarve', form = form)
+
 @app.route('/')
 def index():
     #if 'user' in session:
-        return render_template("index.html", title = 'Pereeelarve')
+    budgets = Budget.query.all()
+    return render_template("index.html", title = 'Pereeelarved', budgets = budgets)
     #return render_template("loginform.html", title = 'Login: Pereeelarve')
 
 
 app.secret_key="asdasq3424qwerqwr35446wef6w4d4f56ds46ae8r42385+fr6we541"
+	
