@@ -10,6 +10,7 @@
         <p>Estimate: {{ budget.profit_or_loss }}</p>
 </div>
 <div id="income">
+        <h3>Income lines:</h3>
 	<ul>
 	{% for line in budget.incomings %}
 	<li>{{ line.name }} :<span class="numb"> {{ line.estimate }}</span></li>
@@ -22,6 +23,7 @@
 	</ul>
 </div>
 <div id="spending">
+        <h3>Spending lines:</h3>
 	<ul>
 	{% for line in budget.spendings %}
 	<li>{{ line.name }} :<span class="numb"> {{ line.estimate }} </span></li>

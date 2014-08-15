@@ -3,20 +3,32 @@
 <div id="header">
 <h1>{% if title %} {{ title }} {% else %} Home budget {% endif %}</h1>
 </div>
+<form action="" method="post" name="post">
 <div id="overview">
-        <form action="" method="post" name="post">
-        Budget: {{ form.name }} <br>
-        Desc: {{ form.desc }}
-        <input class="btn btn-primary" type="submit" value="Add">
-    </form>
+        <ul>
+        <li>Budget: {{ form.name }}</li>
+        <li>Desc: {{ form.desc }}</li>
+        <li><input class="bt" type="submit" value="Add"></li>
+        </ul>
 </div>
 <div id="income">
-
+<span id="incfield">
+<ul>
+<li>1. Income name: {{ form.incomename0 }}</li>
+<li>1. Income estimate: {{ form.incomeestimate0 }}</li>
+</ul>
+</span>
+<a href="javascript:addIncomeField();" class="bt">Add line</a>
 </div>
 <div id="spending">
-	
+<span id="spendfield">
+<ul>
+<li>1. Spending name: {{ form.spendingname0 }}</li>
+<li>1. Spending estimate: {{ form.spendingestimate0 }}</li>
+</ul>
+</span>
+<a href="javascript:addSpendField();" class="bt">Add line</a>
 </div>
-<div id="message">
-</div>
+</form>
 <noscript><div id="noscript">Need's JavaScript to work!</div></noscript>
 {% endblock %}

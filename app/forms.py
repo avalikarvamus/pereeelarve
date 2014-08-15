@@ -17,4 +17,8 @@ from app.models import Budget
 class AddBudgetForm(Form):
     name = TextField(u"Name", [Required()])
     desc = TextField(u"Description", [Required()])
+    incomename0 = TextField(u"Income 1 name", [Required()])
+    incomeestimate0 = TextField(u"Income 1 estimate", [Required()])
+    spendingname0 = TextField(u"Spending 1 name", [Required()])
+    spendingestimate0 = TextField(u"Spending 1 estimate", [Required()])
     
