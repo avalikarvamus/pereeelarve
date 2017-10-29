@@ -1,5 +1,5 @@
-# Pereeelarve
-##Family budget (job demo)##
+# Pereeelarve #
+## Family budget (demo for job) ##
 Small Pyhton family budget program written for job application.
 May be out of date due Python/SQLAlchemy dependencies upgrades.
 
